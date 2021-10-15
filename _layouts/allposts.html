@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+    Forty by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+
+  {% include head.html %}
+
+ <head>
+	<style>
+		img{
+			width: 550px;
+			height: auto;
+			}
+	</style>
+ </head>
+  <body>
+
+    {% include header.html %} 
+    
+    
+    <!-- Main -->
+    <div id="main" class="alt">
+
+      <!-- One -->
+<section id="one" class="spotlights">
+          {% for post in site.posts %}
+	  {% if post.title != 404 %}
+	  <section>
+	<img src="{{ site.baseurl }}/{{ post.image }}" alt="" data-position="center center" />
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>{{ post.title }}</h3>
+				</header>
+				<h3>{{ post.description }}</h3>
+				<ul class="actions">
+					<li><a href="{{ post.url | relative_url }}" class="button">자세하게 보기</a></li>
+
+				</ul>
+			</div>
+		</div>
+      </section>
+	<!--{% if post.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ post.image }}" alt="" /></span>{% endif %}-->
+	  {% if post.date %}<p>{{ post.date }}</p>{% endif %}
+	  <!--<p>{{ post.content }}</p>-->
+	  {% endif %}
+          {% endfor %}
+	</div>
+      </section>
+
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

@@ -1,0 +1,53 @@
+# site settings
+title: "코기네"
+subtitle: "Tech Blog"
+email: "rudgns14@naver.com"
+description: 안녕하세요, 코기네 기술정보 일기장 입니다.
+baseurl:  # the subpath of your site, e.g. /blog
+url: "https://dhy02014.github.io" # the base hostname & protocol for your site
+city: 부천(bucheon)
+state: 경기도(Gyeonggi-do)
+  #author:
+  #street_address: 1234 Somewhere Road
+  #zip_code: 55555
+country: 대한민국(Republic of Korea, KOR)
+  #phone: (716) 555-5555
+
+# homepage tiles
+tiles-source: pages # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings (key must match name of font awesome icon)
+# see https://fontawesome.com/icons?d=gallery&p=2&s=brands
+# Icons are not shown if value is empty
+# You need to restart jekyll for changes to have an effect
+socials:
+  GitHub: "https://github.com/dhy02014"
+    #  GitLab:
+    # Google-Plus: https://plus.google.com/u/0/+AndrewBanchich
+  Instagram: "https://www.instagram.com/craver__jack/"
+  LinkedIn: # https://www.linkedin.com/in/andrew-banchich-a4ba1195
+  Twitter: # https://twitter.com/andrewbanchich
+    #  Facebook:
+    #  Slack:
+
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: "true"
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
+
+    #plugins:
+    #  - jekyll-paginate
+
+exclude:
+- "*.gemspec"
+- LICENSE.md
+- CONTRIBUTING.md
+- README.md 
