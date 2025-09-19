@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "E-Commerce Platform",
+    "description": "React, Node.js, MongoDB를 사용한 풀스택 쇼핑몰",
+    "techStack": ["React", "Node.js", "MongoDB"],
+    "github": "https://github.com/your-username/ecommerce",
+    "demo": "https://your-ecommerce-demo.com"
+  },
+  {
+    "id": 2,
+    "title": "Task Management App",
+    "description": "팀 협업을 위한 실시간 태스크 관리 애플리케이션",
+    "techStack": ["Next.js", "Socket.io", "PostgreSQL"],
+    "github": "https://github.com/your-username/task-manager",
+    "demo": "https://your-task-demo.com"
+  }
+]

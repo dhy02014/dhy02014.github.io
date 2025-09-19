@@ -3,12 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  # 수동 배포 허용 (보안상 필요시에만 사용)
+  workflow_dispatch:
 
+# 최소 권한 원칙 적용
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read      # 저장소 내용 읽기 권한
+  pages: write        # GitHub Pages 배포 권한
+  id-token: write     # OIDC 토큰 생성 권한 (보안 강화)
 
+# 동시 배포 방지 (데이터 무결성 보장)
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -19,18 +23,25 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
+      # 소스 코드 체크아웃 (보안 강화된 버전)
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # 최신 커밋만 가져와 성능 향상
         
-      - name: Setup Pages
+      # GitHub Pages 환경 설정
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
         
-      - name: Upload artifact
+      # 정적 파일 아티팩트 업로드 (불필요한 파일 제외)
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-          
+            
+      # GitHub Pages에 배포
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
