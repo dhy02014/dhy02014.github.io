@@ -1,0 +1,422 @@
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 헤더 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: #007bff;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.m-menu {
+  display: none;
+}
+
+/* 섹션 공통 */
+section {
+  padding: 100px 0;
+}
+
+.bg--black {
+  background: #1a1a1a;
+  color: white;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+/* HOME 섹션 */
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.home__txt h1 {
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.home__txt p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.home__txt span {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.mouse-icon {
+  width: 20px;
+  height: 35px;
+  border: 2px solid white;
+  border-radius: 15px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.mouse-icon::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% { opacity: 1; top: 8px; }
+  100% { opacity: 0; top: 20px; }
+}
+
+/* ABOUT 섹션 */
+.about__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.profile {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+}
+
+.placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: #333;
+  border-radius: 50%;
+}
+
+.profile-txt h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.profile-txt p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.skills h4 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.skills ul {
+  list-style: none;
+}
+
+.skills li {
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  font-size: 16px;
+}
+
+/* BLOG 섹션 */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.blog-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+  transform: translateY(-10px);
+}
+
+.blog-img {
+  height: 200px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.blog-content {
+  padding: 30px;
+}
+
+.blog-content h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.blog-content p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.date {
+  color: #999;
+  font-size: 14px;
+}
+
+/* PROJECTS 섹션 */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.project-item {
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+  transform: scale(1.05);
+}
+
+.project-img {
+  height: 250px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.project-info {
+  padding: 30px;
+}
+
+.project-info h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.project-info p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tech-stack span {
+  background: #007bff;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+/* CONTACT 섹션 */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.contact-item h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.contact-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 푸터 */
+footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* 모바일 메뉴 */
+.m-menu {
+  position: fixed;
+  top: 70px;
+  right: -300px;
+  width: 250px;
+  height: calc(100vh - 70px);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.m-menu.active {
+  right: 0;
+}
+
+.m-menu ul {
+  list-style: none;
+  padding: 30px 0;
+}
+
+.m-menu li {
+  padding: 15px 30px;
+}
+
+.m-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .m-menu {
+    display: block;
+  }
+  
+  .home__txt h1 {
+    font-size: 50px;
+  }
+  
+  .home__txt p {
+    font-size: 18px;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+  
+  .about__info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .blog-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
