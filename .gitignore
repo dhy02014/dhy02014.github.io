@@ -1,2 +1,6 @@
 *change.json
 .q
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata

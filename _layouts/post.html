@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="post-page">
+  <div class="inner">
+    <!-- 포스트 헤더 -->
+    <div class="post-header">
+      <div class="post-meta-top">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+        {% if page.categories %}
+        <span class="category">{{ page.categories | first }}</span>
+        {% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.excerpt %}
+      <p class="post-excerpt">{{ page.excerpt | strip_html }}</p>
+      {% endif %}
+      {% if page.tags %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="tag"># {{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- 포스트 내용 -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- 포스트 푸터 -->
+    <footer class="post-footer">
+      <div class="post-navigation">
+        <a href="{{ '/posts/' | relative_url }}" class="back-to-blog">← 모든 포스트 보기</a>
+      </div>
+      
+      {% if page.author %}
+      <div class="author-info">
+        <div class="author-avatar"></div>
+        <div class="author-details">
+          <h4>{{ page.author }}</h4>
+          <p>개발자</p>
+        </div>
+      </div>
+      {% endif %}
+    </footer>
+  </div>
+</div>

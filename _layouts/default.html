@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <h2><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+        <div class="m-menu">
+            <ul>
+                <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <main>
+        {{ content }}
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 {{ site.title }} - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // 모바일 메뉴 토글
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mMenu = document.querySelector('.m-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mMenu.classList.toggle('active');
+        });
+
+        // 스크롤 시 헤더 숨김/표시 - 모든 페이지 적용
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        function updateHeader() {
+            const header = document.querySelector('header');
+            const currentScrollY = window.scrollY;
+            
+            // 디버깅용 로그 (개발 시에만 사용)
+            // console.log('Scroll Y:', currentScrollY, 'Last Y:', lastScrollY);
+            
+            if (currentScrollY > 50) {
+                if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 5) {
+                    // 스크롤 다운 - 헤더 숨김
+                    header.style.transform = 'translateY(-100%)';
+                } else if (lastScrollY - currentScrollY > 5) {
+                    // 스크롤 업 - 헤더 표시
+                    header.style.transform = 'translateY(0)';
+                }
+            } else {
+                // 상단 근처에서는 항상 표시
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+
+        // 부드러운 스크롤 - 같은 페이지 내 앵커 링크만
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // 모바일 메뉴 닫기
+                    menuToggle.classList.remove('active');
+                    mMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // 홈 링크 처리
+        document.querySelectorAll('a[href="/"], a[href="./"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                    e.preventDefault();
+                    document.getElementById('home').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    menuToggle.classList.remove('active');
+                    mMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // 모바일 메뉴 외부 클릭 시 닫기
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !mMenu.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                mMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

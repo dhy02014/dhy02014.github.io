@@ -1,0 +1,44 @@
+title: Tech Blog
+email: <email>
+description: GitHub Pages용 기술 블로그 사이트 및 포트폴리오
+baseurl: ""
+url: "https://dhy02014.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "<name>"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .q/
+  - convert-md.js
+  - md-renderer.html
+  - 25.09.19_blog_ajax_change.json
