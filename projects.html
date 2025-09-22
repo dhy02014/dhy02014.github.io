@@ -1,0 +1,278 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<section class="projects-page">
+  <div class="inner">
+    <div class="projects-hero">
+      <h1 class="title">Projects Portfolio</h1>
+      <p class="subtitle">실무에서 수행한 프로젝트와 개인 학습 프로젝트를 소개합니다</p>
+    </div>
+
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Infrastructure Projects -->
+      <div class="project-card" data-category="infrastructure">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">☁️</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>AWS Multi-Tier Architecture</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="project-description">
+            AWS 기반 3-tier 웹 애플리케이션 인프라 구축. Auto Scaling, Load Balancer, RDS를 활용한 고가용성 아키텍처 설계 및 구현
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">AWS</span>
+            <span class="tech-tag">EC2</span>
+            <span class="tech-tag">RDS</span>
+            <span class="tech-tag">ALB</span>
+            <span class="tech-tag">Auto Scaling</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 3 weeks</span>
+            <span class="project-role">Role: DevOps Engineer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation Projects -->
+      <div class="project-card" data-category="automation">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">🔧</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Infrastructure as Code with Terraform</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="project-description">
+            Terraform을 활용한 AWS 인프라 자동화. 모듈화된 코드 구조로 재사용 가능한 인프라 템플릿 구축 및 CI/CD 파이프라인 통합
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">Terraform</span>
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Ansible</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 4 weeks</span>
+            <span class="project-role">Role: Infrastructure Engineer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container Projects -->
+      <div class="project-card" data-category="automation">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">🐳</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Kubernetes Microservices Platform</h3>
+            <span class="project-status in-progress">In Progress</span>
+          </div>
+          <p class="project-description">
+            AWS EKS 기반 마이크로서비스 플랫폼 구축. Helm Charts, Ingress Controller, 모니터링 스택을 포함한 완전한 컨테이너 오케스트레이션 환경
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">Kubernetes</span>
+            <span class="tech-tag primary">AWS EKS</span>
+            <span class="tech-tag">Helm</span>
+            <span class="tech-tag">Prometheus</span>
+            <span class="tech-tag">Grafana</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 6 weeks</span>
+            <span class="project-role">Role: Platform Engineer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development Projects -->
+      <div class="project-card" data-category="web">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">🌐</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Jekyll Tech Blog Platform</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="project-description">
+            GitHub Pages와 Jekyll을 활용한 기술 블로그 플랫폼. 반응형 디자인, 자동 배포, SEO 최적화가 적용된 정적 사이트 생성기
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">Jekyll</span>
+            <span class="tech-tag">GitHub Pages</span>
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 2 weeks</span>
+            <span class="project-role">Role: Full-Stack Developer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CI/CD Projects -->
+      <div class="project-card" data-category="automation">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">🚀</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>GitOps CI/CD Pipeline</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="project-description">
+            GitLab과 ArgoCD를 활용한 GitOps 기반 CI/CD 파이프라인. 자동화된 테스트, 빌드, 배포 프로세스와 롤백 기능 구현
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">GitLab CI</span>
+            <span class="tech-tag primary">ArgoCD</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Python</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 5 weeks</span>
+            <span class="project-role">Role: DevOps Engineer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monitoring Projects -->
+      <div class="project-card" data-category="infrastructure">
+        <div class="project-image">
+          <div class="project-placeholder">
+            <span class="project-icon">📊</span>
+          </div>
+          <div class="project-overlay">
+            <div class="project-links">
+              <a href="#" class="btn-link">View Details</a>
+              <a href="#" class="btn-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3>Observability Stack Implementation</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="project-description">
+            Prometheus, Grafana, ELK Stack을 활용한 종합 모니터링 시스템 구축. 메트릭 수집, 로그 분석, 알림 시스템 통합 구현
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag primary">Prometheus</span>
+            <span class="tech-tag primary">Grafana</span>
+            <span class="tech-tag">ELK Stack</span>
+            <span class="tech-tag">AlertManager</span>
+            <span class="tech-tag">Kubernetes</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-duration">Duration: 4 weeks</span>
+            <span class="project-role">Role: SRE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 프로젝트 필터링 기능
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // 활성 버튼 변경
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.dataset.filter;
+      
+      // 프로젝트 카드 필터링
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 100);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+  
+  // 프로젝트 카드 호버 효과
+  projectCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.querySelector('.project-overlay').style.opacity = '1';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.querySelector('.project-overlay').style.opacity = '0';
+    });
+  });
+});
+</script>

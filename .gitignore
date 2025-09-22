@@ -1,6 +1,45 @@
-*change.json
-.q
+# Jekyll 생성 파일
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Ruby/Bundler
+.bundle/
+vendor/
+Gemfile.lock
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Q CLI
+.q/
+
+# 임시 파일
+*.tmp
+*.temp
+*change.json
+*.json.bak
+
+# Node modules (if using npm/yarn)
+node_modules/

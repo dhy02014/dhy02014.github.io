@@ -11,12 +11,15 @@
         <div class="inner">
             <div class="logo">
                 <h2><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-text">Light</span>
+                </button>
             </div>
             <nav>
                 <ul class="menu">
                     <li><a href="{{ '/' | relative_url }}">Home</a></li>
                     <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="menu-toggle">
@@ -30,8 +33,13 @@
             <ul>
                 <li><a href="{{ '/' | relative_url }}">Home</a></li>
                 <li><a href="{{ '/posts/' | relative_url }}">Blog</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="mobile-theme-toggle">
+                    <button class="theme-toggle mobile" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <span class="theme-text">Light Mode</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </header>
@@ -45,6 +53,61 @@
     </footer>
 
     <script>
+        // 테마 토글 기능
+        function toggleTheme() {
+            const body = document.body;
+            const themeTexts = document.querySelectorAll('.theme-text');
+            
+            body.classList.toggle('light-mode');
+            
+            const isLight = body.classList.contains('light-mode');
+            
+            themeTexts.forEach(text => {
+                if (text.parentElement.classList.contains('mobile')) {
+                    text.textContent = isLight ? 'Light Mode' : 'Dark Mode';
+                } else {
+                    text.textContent = isLight ? 'Light' : 'Dark';
+                }
+            });
+            
+            // 테마 설정 저장
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        // 페이지 로드 시 기본 Light 모드 적용
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeTexts = document.querySelectorAll('.theme-text');
+            
+            // 기본값을 Light 모드로 설정
+            if (!savedTheme || savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeTexts.forEach(text => {
+                    if (text.parentElement.classList.contains('mobile')) {
+                        text.textContent = 'Light Mode';
+                    } else {
+                        text.textContent = 'Light';
+                    }
+                });
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Dark 모드인 경우
+                themeTexts.forEach(text => {
+                    if (text.parentElement.classList.contains('mobile')) {
+                        text.textContent = 'Dark Mode';
+                    } else {
+                        text.textContent = 'Dark';
+                    }
+                });
+            }
+            
+            // 테마 토글 버튼 이벤트
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+        });
+
         // 모바일 메뉴 토글
         const menuToggle = document.querySelector('.menu-toggle');
         const mMenu = document.querySelector('.m-menu');
